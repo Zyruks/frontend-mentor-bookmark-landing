@@ -1,6 +1,8 @@
+@use "functions" as *;
+
 $font-families: (
-  "accent": "Abril Fatface",
-  "base": "Lato",
+  // "accent": "Abril Fatface",
+  "base": "Rubik"
 );
 $font-sizes: (
   "static": (
@@ -20,7 +22,7 @@ $font-sizes: (
     // 10.42px to 15.16
     200: clamp(0.65rem, calc(0.51rem + 0.6vw), 0.96rem),
     // 12.50px to 1920
-    300: clamp(0.78rem, calc(0.59rem + 0.81vw), 1.2rem),
+    300: clamp(0.73rem, calc(0.8rem + 0.22vw), 1rem),
     // 15px to 24px
     400: clamp(0.94rem, calc(0.68rem + 1.09vw), 1.5rem),
     // 18px to 30
@@ -36,17 +38,16 @@ $font-sizes: (
   ),
 );
 $font-weights: (
-  "300": 300,
-  "400": 400,
-  "700": 700,
+  400: 400,
+  500: 500,
 );
 $line-heights: (
-  "400": 1,
-  "500": 1.1,
-  "600": 1.5,
-  "700": 1.6,
-  "800": 1.8,
-  "900": 2,
+  400: 1,
+  500: 1.1,
+  600: 1.5,
+  700: 1.6,
+  800: 1.8,
+  900: 2,
 );
 $letter-spacings: (
   "extra-tight": rem(-2),

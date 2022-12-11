@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Change Title here</title>
-    <meta name="title" content="Change Title here" />
+    <title>Bookmark Landing Page</title>
+    <meta name="title" content="Bookmark Landing Page" />
     <meta name="description" content="Change description" />
     <meta name="keywords" content="frontend mentor" />
     <meta name="robots" content="index, follow" />
@@ -40,33 +40,146 @@
     <!-- favicon responsive end-->
 
     <!-- google stuff -->
-
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
     <!-- google stuff end-->
 
     <!-- styles -->
-    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/main.css" />
     <!-- styles end -->
   </head>
 
   <body>
-    <div class="container">
-      <div class="headings">
-        <h1 class="primary-heading">Heading</h1>
-        <h2 class="secondary-heading">Heading</h2>
-        <h3 class="third-heading">Heading</h3>
-        <h4>Heading</h4>
-        <h5>Heading</h5>
-        <h6>Heading</h6>
+    <header class="primary-header">
+      <div class="container">
+        <div class="flex-group">
+          <img src="./assets/svg/logo-bookmark.svg" class="logo" alt="" />
+          <img
+            class="burger-icon js-burger-icon"
+            src="./assets/svg/icon-hamburger.svg"
+            alt=""
+            data-state="close"
+          />
+
+          <nav class="primary-nav js-primary-nav">
+            <ul class="flex-group uppercase">
+              <li><a href="#features"> Features </a></li>
+              <li><a href="#pricing">Pricing </a></li>
+              <li><a href="#contact">Contact </a></li>
+              <li>
+                <button href="#" class="button" data-type="cta">Login</button>
+              </li>
+            </ul>
+
+            <div class="social-links | flex-group mx-auto">
+              <img src="./assets/svg/icon-facebook.svg" alt="Facebook icon" />
+              <img src="./assets/svg/icon-twitter.svg" alt="Twitter icon" />
+            </div>
+          </nav>
+        </div>
       </div>
-      <div>
-        <p class="fs-body">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore
-          provident, numquam ipsam facere molestias vel ea porro, quisquam sed,
-          impedit ex magnam adipisci laboriosam cupiditate perspiciatis
-          voluptatem necessitatibus. At, exercitationem?
-        </p>
-      </div>
-    </div>
+    </header>
+    <main>
+      <section class="hero | margin-block-96">
+        <div class="container">
+          <div class="even-columns">
+            <picture>
+              <img src="./assets/svg/illustration-hero.svg" alt="" />
+            </picture>
+            <div class="txt-component stack grid-left" data-position="left">
+              <h1 class="txt-component__title | txt-neutral-900">
+                A Simple Bookmark Manager
+              </h1>
+              <p class="txt-component__description | txt-neutral-400">
+                A clean and simple interface to organize your favorite websites.
+                Open a new browser tab and see your sites load instantly. Try it
+                for free.
+              </p>
+
+              <div class="txt-component__btn-container | flex-group">
+                <button class="button">Get it on Chrome</button>
+                <button class="button" data-type="inverted">
+                  Get it on Firefox
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="container">
+          <div id="feature" class="feature | txt-component | stack">
+            <h2 class="txt-component__title | txt-neutral-900">Features</h2>
+            <p class="txt-component__description">
+              Our aim is to make it quick and easy for you to access your
+              favorite websites. your bookmarks sync between your devices so you
+              can access them on the go.
+            </p>
+          </div>
+          <div class="feature-controls js-feature-controls | margin-block-48">
+            <ul>
+              <li data-state="inactive">Simple Bookmarking</li>
+              <li data-state="active">Speedy Searching</li>
+              <li data-state="inactive">Easy Sharing</li>
+            </ul>
+          </div>
+          <div class="carousel js-carousel">
+            <div class="carousel__first-item | even-columns">
+              <img src="./assets/svg/illustration-features-tab-1.svg" alt="" />
+              <div class="txt-component | stack" data-position="left">
+                <h3 class="txt-component__title txt-neutral-900">
+                  Bookmark in one click
+                </h3>
+                <p class="txt-component__description">
+                  Organize your bookmarks however you like. Our simple
+                  drag-and-drop interface give you complete control over how you
+                  manage your favorite sites.
+                </p>
+                <button class="button | txt-component__btn-container">
+                  More info
+                </button>
+              </div>
+            </div>
+            <div class="carousel__second-item | even-columns dp-grid">
+              <img src="./assets/svg/illustration-features-tab-2.svg" alt="" />
+              <div class="txt-component | stack" data-position="left">
+                <h3 class="txt-component__title txt-neutral-900">
+                  Intelligent search
+                </h3>
+                <p class="txt-component__description">
+                  Our powerful search feature will help you find saved sites in
+                  no time at all. No need to trawl though all of your bookmarks
+                </p>
+                <button class="button | txt-component__btn-container">
+                  More info
+                </button>
+              </div>
+            </div>
+
+            <div class="carousel__third-item | even-columns">
+              <img src="./assets/svg/illustration-features-tab-3.svg" alt="" />
+              <div class="txt-component | stack" data-position="left">
+                <h3 class="txt-component__title txt-neutral-900">
+                  Share your bookmarks
+                </h3>
+                <p class="txt-component__description">
+                  Easily share your bookmarks and collections with others.
+                  Create a shareable link that you can send at the click of a
+                  button
+                </p>
+                <button class="button | txt-component__btn-container">
+                  More info
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
     <script src="./scripts/script.js"></script>
   </body>
 </html>

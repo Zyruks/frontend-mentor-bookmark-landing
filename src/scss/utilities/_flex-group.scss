@@ -2,9 +2,10 @@
 
 .flex-group {
   display: flex;
-  flex-wrap: wrap;
 
-  inline-size: fit-content;
+  flex-shrink: 0;
+  flex-wrap: nowrap;
+  align-items: center;
 
   column-gap: var(--flex-column-gap, $flex-group-gap);
   row-gap: var(--flex-row-gap, calc($flex-group-gap / 2));

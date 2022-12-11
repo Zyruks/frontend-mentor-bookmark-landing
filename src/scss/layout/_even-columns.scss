@@ -4,8 +4,9 @@
   display: grid;
   gap: var(--grid-gap, $grid-gap);
 
-  @include mq(large) {
+  @include mq(medium) {
     grid-auto-columns: 1fr;
     grid-auto-flow: column;
+    align-items: center;
   }
 }
