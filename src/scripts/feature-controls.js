@@ -4,96 +4,75 @@ const featureControls = document
   .querySelector(".js-feature-controls")
   .firstElementChild.querySelectorAll("li");
 const carousel = document.querySelector(".js-carousel").children;
+const featureControlAnimations = {
+  in: ["anime-left-to-right-in", "anime-right-to-left-in"],
+  out: ["anime-left-to-right-out", "anime-right-to-left-out"],
+};
 
-function classCleaner(active, inactiveOne, inactiveTwo) {
+function classCleaner() {
   setTimeout(() => {
-    carousel[active].classList.remove("anime-right-to-left-in");
-    carousel[active].classList.remove("anime-right-to-left-out");
-    carousel[active].classList.remove("anime-left-to-right-in");
-    carousel[active].classList.remove("anime-left-to-right-out");
-
-    carousel[inactiveOne].classList.remove("anime-right-to-left-out");
-    carousel[inactiveOne].classList.remove("anime-left-to-right-out");
-    carousel[inactiveOne].classList.remove("anime-right-to-left-in");
-    carousel[inactiveOne].classList.remove("anime-left-to-right-in");
-
-    carousel[inactiveTwo].classList.remove("anime-left-to-right-in");
-    carousel[inactiveTwo].classList.remove("anime-right-to-left-in");
-    carousel[inactiveTwo].classList.remove("anime-left-to-right-out");
-    carousel[inactiveTwo].classList.remove("anime-right-to-left-out");
+    for (let x = 0; x < 3; x++) {
+      for (let i = 0; i < 2; i++) {
+        carousel[x].classList.remove(featureControlAnimations.in[i]);
+        carousel[x].classList.remove(featureControlAnimations.out[i]);
+      }
+    }
   }, 380);
 }
 
-function featureSelection(active, inactiveOne, inactiveTwo) {
+function carouselActivity(active, inactiveOne, inactiveTwo, animation) {
+  carousel[active].classList.add("dp-grid");
+  setTimeout(() => {
+    carousel[inactiveOne].classList.remove("dp-grid");
+    carousel[inactiveTwo].classList.remove("dp-grid");
+  }, 370);
+
+  //? Animations
+  for (let i = 0; i <= 2; i++) {
+    if (
+      active === i &&
+      carousel[inactiveOne].classList.contains("dp-grid") === true
+    ) {
+      carousel[active].classList.add(featureControlAnimations.in[animation]);
+      carousel[inactiveOne].classList.add(
+        featureControlAnimations.out[animation]
+      );
+    } else if (
+      active === i &&
+      carousel[inactiveTwo].classList.contains("dp-grid") === true
+    ) {
+      carousel[active].classList.add(featureControlAnimations.in[animation]);
+      carousel[inactiveTwo].classList.add(
+        featureControlAnimations.out[animation]
+      );
+    }
+  }
+}
+
+function featureSelection(active, inactiveOne, inactiveTwo, animation) {
   featureControls[active].addEventListener("click", () => {
     if (featureControls[active].getAttribute("data-state") !== "active") {
       featureControls[active].setAttribute("data-state", "active");
       featureControls[inactiveOne].setAttribute("data-state", "inactive");
       featureControls[inactiveTwo].setAttribute("data-state", "inactive");
-      featureControls[inactiveOne].classList.remove(
-        "translation-right-to-left"
-      );
 
-      // carousel
-
-      carousel[active].classList.add("dp-grid");
-      setTimeout(() => {
-        carousel[inactiveOne].classList.remove("dp-grid");
-        carousel[inactiveTwo].classList.remove("dp-grid");
-      }, 370);
-
-      if (active === 0 && carousel[inactiveOne].classList.contains("dp-grid")) {
-        carousel[active].classList.add("anime-left-to-right-in");
-        carousel[inactiveOne].classList.add("anime-left-to-right-out");
-
-        classCleaner(active, inactiveOne, inactiveTwo);
-      } else if (
-        active === 0 &&
-        carousel[inactiveTwo].classList.contains("dp-grid")
-      ) {
-        carousel[active].classList.add("anime-left-to-right-in");
-        carousel[inactiveTwo].classList.add("anime-left-to-right-out");
-
-        classCleaner(active, inactiveOne, inactiveTwo);
-      } else if (
+      // ? Carousel
+      if (
         active === 1 &&
-        carousel[inactiveOne].classList.contains("dp-grid")
+        carousel[inactiveTwo].classList.contains("dp-grid") == true
       ) {
-        carousel[active].classList.add("anime-right-to-left-in");
-        carousel[inactiveOne].classList.add("anime-right-to-left-out");
-
-        classCleaner(active, inactiveOne, inactiveTwo);
-      } else if (
-        active === 1 &&
-        carousel[inactiveTwo].classList.contains("dp-grid")
-      ) {
-        carousel[active].classList.add("anime-left-to-right-in");
-        carousel[inactiveTwo].classList.add("anime-left-to-right-out");
-        console.log("meet");
-
-        classCleaner(active, inactiveOne, inactiveTwo);
-      } else if (
-        active === 2 &&
-        carousel[inactiveOne].classList.contains("dp-grid")
-      ) {
-        carousel[active].classList.add("anime-right-to-left-in");
-        carousel[inactiveOne].classList.add("anime-right-to-left-out");
-        classCleaner(active, inactiveOne, inactiveTwo);
-      } else if (
-        active === 2 &&
-        carousel[inactiveTwo].classList.contains("dp-grid")
-      ) {
-        carousel[active].classList.add("anime-right-to-left-in");
-        carousel[inactiveTwo].classList.add("anime-right-to-left-out");
-
-        classCleaner(active, inactiveOne, inactiveTwo);
+        carouselActivity(active, inactiveOne, inactiveTwo, 0);
+      } else {
+        carouselActivity(active, inactiveOne, inactiveTwo, animation);
       }
+
+      classCleaner();
     }
   });
 }
 
-featureSelection(0, 1, 2);
+featureSelection(0, 1, 2, 0);
 
-featureSelection(1, 0, 2);
+featureSelection(1, 0, 2, 1);
 
-featureSelection(2, 1, 0);
+featureSelection(2, 1, 0, 1);
