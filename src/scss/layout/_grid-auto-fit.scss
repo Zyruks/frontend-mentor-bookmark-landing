@@ -2,6 +2,11 @@
 
 .grid-auto-fit {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(rem(250), 100%), 1fr));
+  place-items: center;
+
   gap: var(--grid-gap, $grid-gap);
+
+  @include mq(large) {
+    grid-template-columns: repeat(auto-fit, minmax(min(rem(250), 100%), 1fr));
+  }
 }
