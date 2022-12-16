@@ -21,6 +21,12 @@
     padding-block: rem(36);
     border-block-end: rem(1) solid rgba(224, 224, 224);
 
+    &:hover {
+      color: var(--clr-primary-500);
+
+      opacity: 0.8;
+    }
+
     &:first-child {
       border-block-start: rem(1) solid rgba(224, 224, 224);
     }
@@ -57,12 +63,4 @@
       }
     }
   }
-}
-
-.translation-left-to-right {
-  transform: translateX(rem(25));
-}
-
-.translation-right-to-left {
-  transform: translateX(rem(-25));
 }
