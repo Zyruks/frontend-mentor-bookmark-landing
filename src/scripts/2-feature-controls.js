@@ -1,20 +1,18 @@
-"use strict";
-
 const featureControls = document
   .querySelector(".js-feature-controls")
   .firstElementChild.querySelectorAll("li");
-const carousel = document.querySelector(".js-carousel").children;
+const carousel = document.querySelectorAll(".js-carousel__item");
 const featureControlAnimations = {
   in: ["anime-left-to-right-in", "anime-right-to-left-in"],
   out: ["anime-left-to-right-out", "anime-right-to-left-out"],
 };
 
-function classCleaner() {
+function classCleaner(tag) {
   setTimeout(() => {
     for (let x = 0; x < 3; x++) {
       for (let i = 0; i < 2; i++) {
-        carousel[x].classList.remove(featureControlAnimations.in[i]);
-        carousel[x].classList.remove(featureControlAnimations.out[i]);
+        tag[x].classList.remove(featureControlAnimations.in[i]);
+        tag[x].classList.remove(featureControlAnimations.out[i]);
       }
     }
   }, 380);
@@ -37,10 +35,7 @@ function carouselActivity(active, inactiveOne, inactiveTwo, animation) {
       carousel[inactiveOne].classList.add(
         featureControlAnimations.out[animation]
       );
-    } else if (
-      active === i &&
-      carousel[inactiveTwo].classList.contains("dp-grid") === true
-    ) {
+    } else {
       carousel[active].classList.add(featureControlAnimations.in[animation]);
       carousel[inactiveTwo].classList.add(
         featureControlAnimations.out[animation]
@@ -59,14 +54,14 @@ function featureSelection(active, inactiveOne, inactiveTwo, animation) {
       // ? Carousel
       if (
         active === 1 &&
-        carousel[inactiveTwo].classList.contains("dp-grid") == true
+        carousel[inactiveTwo].classList.contains("dp-grid") === true
       ) {
         carouselActivity(active, inactiveOne, inactiveTwo, 0);
       } else {
         carouselActivity(active, inactiveOne, inactiveTwo, animation);
       }
 
-      classCleaner();
+      classCleaner(carousel);
     }
   });
 }

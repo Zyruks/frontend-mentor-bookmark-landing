@@ -1,3 +1,5 @@
+"use strict";
+
 const burgerIcon = document.querySelector(".js-burger-icon");
 const primaryNav = document.querySelector(".js-primary-nav");
 
