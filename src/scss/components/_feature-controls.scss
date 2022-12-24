@@ -1,6 +1,11 @@
 @use "../abstracts/" as *;
 
 .feature-controls {
+  --active-position-x: 0;
+  --active-position-y: 0;
+  --opacity: 1;
+  position: relative;
+
   display: grid;
 
   font-size: var(--fs-500);
@@ -41,6 +46,12 @@
       display: block;
 
       background-color: var(--clr-primary-500);
+      transform: translateX(var(--active-position-x))
+        translateY(var(--active-position-y));
+
+      opacity: var(--opacity);
+
+      transition: transform 350ms ease-in-out;
 
       content: "";
       inset-block-end: 0;
