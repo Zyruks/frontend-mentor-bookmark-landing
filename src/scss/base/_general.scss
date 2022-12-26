@@ -115,3 +115,45 @@ body {
     }
   }
 }
+
+.style-bg {
+  position: absolute;
+  inset-block-start: rem(20);
+
+  z-index: -1;
+
+  background-image: url("../assets/svg/bg.svg");
+  background-repeat: no-repeat;
+  background-position: right top;
+  background-size: 80%;
+  transform: rotate(180deg);
+  inset-inline-start: -15%;
+  inline-size: 100%;
+  block-size: 100%;
+
+  @include mq(medium) {
+    background-size: 100%;
+    transform: rotate(0);
+    inset-inline-start: 15%;
+    inset-block-start: rem(100);
+  }
+}
+
+.image-container {
+  position: relative;
+
+  &[data-position="left"] .style-bg {
+    inset-block-start: rem(20);
+
+    background-position: left top;
+    background-size: 100%;
+    transform: rotate(180deg);
+    inset-inline-start: -35%;
+
+    @include mq(medium) {
+      inset-block-start: rem(50);
+
+      inset-inline-start: -35%;
+    }
+  }
+}
