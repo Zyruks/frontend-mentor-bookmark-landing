@@ -46,8 +46,28 @@
 }
 
 .button[data-type="cta"] {
+  border: rem(2) solid transparent;
+
+  color: var(--clr-neutral-100);
+  font-size: var(--fs-400);
+
+  background-color: var(--clr-primary-500);
+  padding-inline: rem(20);
+  padding-block: rem(8);
+
+  &:hover {
+    border: rem(2) solid var(--clr-primary-500);
+
+    color: var(--clr-primary-500);
+
+    background-color: var(--clr-neutral-100);
+  }
+}
+
+.button[data-type="primary-nav"] {
   border: rem(2) solid var(--clr-neutral-100);
 
+  font-size: 1.5rem;
   letter-spacing: var(--letter-spacing-loose);
   text-transform: uppercase;
 
@@ -59,10 +79,13 @@
   padding-block: rem(4);
 
   &:hover {
+    border: rem(2) solid transparent;
+
     color: var(--clr-neutral-900);
 
     background-color: var(--clr-neutral-100);
   }
+
   @include mq(large) {
     border: rem(2) solid transparent;
 
@@ -78,7 +101,7 @@
 
       color: var(--clr-primary-500);
 
-      background-color: transparent;
+      background-color: var(--clr-neutral-100);
     }
   }
 }

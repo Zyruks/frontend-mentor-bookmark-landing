@@ -3,6 +3,7 @@
 .txt-component {
   --flow-spacer: 1.2rem;
   text-align: center;
+  margin-block-end: var(--size-36);
 
   @include mq(medium) {
     &[data-position="left"] {
@@ -41,7 +42,7 @@
   font-size: var(--fs-description, var(--fs-400));
   line-height: var(--lh-700);
   margin-inline: auto;
-  max-inline-size: 30ch;
+  max-inline-size: 35ch;
 
   @include mq(medium) {
     font-size: var(--fs-description, var(--fs-400));

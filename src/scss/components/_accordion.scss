@@ -9,6 +9,8 @@
 .accordion {
   max-inline-size: 30rem;
 
+  font-size: var(--fluid-fs-300);
+
   .accordion__header {
     font-weight: var(--fw-400);
   }
@@ -22,6 +24,7 @@
 .accordion__item {
   position: relative;
 
+  cursor: pointer;
   margin-block: var(--size-48);
 
   &::after {

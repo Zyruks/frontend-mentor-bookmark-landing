@@ -8,7 +8,7 @@
 
   display: grid;
 
-  font-size: var(--fs-500);
+  font-size: var(--fs-400);
   text-align: center;
   place-content: center;
 
@@ -23,7 +23,9 @@
     position: relative;
 
     cursor: pointer;
-    padding-block: rem(36);
+
+    user-select: none;
+    padding-block: rem(16);
     border-block-end: rem(1) solid rgba(224, 224, 224);
 
     &:hover {
@@ -57,7 +59,7 @@
       inset-block-end: 0;
       margin-inline: auto;
       inset-inline: 0;
-      block-size: rem(6);
+      block-size: rem(4);
       inline-size: 50%;
     }
   }

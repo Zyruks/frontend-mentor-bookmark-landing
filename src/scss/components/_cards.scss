@@ -15,6 +15,10 @@
 
   & .button {
     margin-block-start: 1rem;
+
+    @include mq(large) {
+      font-size: var(--fluid-fs-100);
+    }
   }
 
   .grid-auto-fit & {

@@ -47,6 +47,10 @@
     letter-spacing: var(--letter-spacing-loose);
 
     transition: color 300ms ease-in-out;
+
+    &:hover {
+      color: var(--clr-primary-500);
+    }
   }
 
   // Desktop
@@ -98,7 +102,27 @@
   }
 }
 
-/* TODO
-- [x] create primary nav with mobile nav
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  justify-content: start;
 
-*/
+  @include mq(large) {
+    flex-direction: row;
+  }
+
+  a {
+    color: var(--clr-neutral-100);
+
+    font-size: 1rem;
+    text-transform: uppercase;
+
+    transition: color 300ms ease-in-out;
+
+    &:hover {
+      color: var(--clr-primary-500);
+    }
+  }
+}
